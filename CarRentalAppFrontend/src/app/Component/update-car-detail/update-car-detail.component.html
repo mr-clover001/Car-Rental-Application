@@ -1,0 +1,78 @@
+  
+  <div class="container">
+    <h2>Update Car Details</h2>
+    <form [formGroup]="UpdatedCarDetailForm" (ngSubmit)="collectUpdatedData()">
+      <div class="row mb-3">
+        <label for="maker" class="form-label">Car's Company</label>
+        <input type="text" class="form-control" id="maker" placeholder="Enter Car's Company name" formControlName="maker">
+        <!-- Display validation message if maker is required and invalid -->
+        <div *ngIf="UpdatedCarDetailForm.get('maker')?.hasError('required') && UpdatedCarDetailForm.get('maker')?.touched" class="text-danger">Maker is required</div>
+      </div>
+  
+      <div class="row mb-3">
+        <label for="model" class="form-label">Model</label>
+        <input type="text" class="form-control" id="model" placeholder="Enter Car's Model name" formControlName="model">
+        <!-- Display validation message if model is required and invalid -->
+        <div *ngIf="UpdatedCarDetailForm.get('model')?.hasError('required') && UpdatedCarDetailForm.get('model')?.touched" class="text-danger">Model is required</div>
+      </div>
+  
+      <div class="row mb-3">
+        <label for="color" class="form-label">Color</label>
+        <input type="text" class="form-control" id="color" placeholder="Enter Car's color name" formControlName="color">
+        <!-- Display validation message if color is required and invalid -->
+        <div *ngIf="UpdatedCarDetailForm.get('color')?.hasError('required') && UpdatedCarDetailForm.get('color')?.touched" class="text-danger">Color is required</div>
+      </div>
+  
+      <div class="row mb-3">
+        <div class="col">
+          <label for="imageFileName" class="form-label">Image</label>
+          <input type="file" name="imageFileName" class="form-control" id="imageFileName" formControlName="imageFileName" (change)="UploadPhoto($event)">
+          <p *ngIf="!isChanged">Selected file: {{ PhotoFileName }}</p>
+          <p *ngIf="isChanged">Selected file: {{ selectedFileName }}</p>
+        </div>
+        <div *ngIf="!isChanged" class="col"><img style="width:100px; height:100px" [src]="PhotoFilePath" [alt]="PhotoFileName"></div>
+        <div *ngIf="isChanged" class="col"><img style="width:100px; height:100px" [src]="changedPhotoFilePath" [alt]="changedPhotoFilePath"></div>
+      </div>
+  
+      <div class="row mb-3">
+        <div class="col">
+          <label for="rentalPrice" class="form-label">Rental Price</label>
+          <input type="number" class="form-control" id="rentalPrice" placeholder="Enter rentalPrice" formControlName="rentalPrice">
+          <!-- Display validation message if rentalPrice is required and invalid -->
+          <div *ngIf="UpdatedCarDetailForm.get('rentalPrice')?.hasError('required') && UpdatedCarDetailForm.get('rentalPrice')?.touched" class="text-danger">Rental Price is required</div>
+          <!-- Display validation message if rentalPrice is less than 0 -->
+          <div *ngIf="UpdatedCarDetailForm.get('rentalPrice')?.hasError('min') && UpdatedCarDetailForm.get('rentalPrice')?.touched" class="text-danger">Rental Price must be greater than or equal to 0</div>
+        </div>
+      </div>
+  
+      <div class="row mb-3">
+        <div class="col">
+          <label for="avaiablityStatus" class="form-label">Availability Status</label>
+          <select class="form-select" id="avaiablityStatus" formControlName="avaiablityStatus" aria-label="Default select example">
+            <option value="Available">Available</option>
+            <option value="Not Available">Not Available</option>
+          </select>
+          <!-- Display validation message if avaiablityStatus is required and invalid -->
+          <div *ngIf="UpdatedCarDetailForm.get('avaiablityStatus')?.hasError('required') && UpdatedCarDetailForm.get('avaiablityStatus')?.touched" class="text-danger">Availability Status is required</div>
+        </div>
+      </div>
+      
+      <!-- <button type="submit" class="submit-btn" [disabled]="UpdatedCarDetailForm.invalid">Update Product</button> -->
+
+
+      <div class="action">
+        <button  class="submit-btn" type="submit" [disabled]="UpdatedCarDetailForm.invalid">Edit</button>
+        <button  class="submit-btn" type="submit" routerLink="/" style="margin-left: 12px;">Back</button>
+    </div>
+    </form>
+  
+    <!-- Success message when the form is successfully submitted -->
+    <div *ngIf="isCarAdded" class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+      <strong>Success!</strong> Car is Updated Successfully.
+      <button (click)="closeClick()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </div>
+  
+  

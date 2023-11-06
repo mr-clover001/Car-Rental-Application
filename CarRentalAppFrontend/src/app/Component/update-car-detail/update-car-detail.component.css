@@ -1,0 +1,98 @@
+.container {
+    
+    height: 850px;
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 40px;
+    border: 1px solid #f8f9fa;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 16px 0px;
+    background-color: rgba(106, 106, 104, 0.035);
+    margin-bottom: 20px;
+  }
+  
+  
+  
+  .form-label {
+    font-weight: bold;
+  }
+  
+  .form-control {
+    border-radius: 5px;
+  }
+  
+  textarea.form-control {
+    resize: vertical;
+  }
+  
+  .btn-primary {
+    width: 100%;
+    margin-top: 12px;
+    border-radius: 28px;
+    font-size: 20px;
+  
+  }
+  
+  .form-text {
+    font-size: small;
+    font-weight: 500;
+    color: rgb(255, 32, 32);
+  }
+  
+  
+  
+  .ProductPage {
+    position: relative;
+    top: 20px;
+    margin-left: -100px;
+    text-decoration: none;
+    padding: 8px 8px;
+    border-radius: 5px;
+    font-size: 18px;
+    color: white;
+    font-weight: 600;
+    background-color: rgba(0, 170, 255, 0.73);
+  }
+  
+  .ProductPage:hover {
+    border: 3px solid rgba(0, 170, 255, 0.541);
+    color: rgba(0, 170, 255, 0.541);
+    font-weight: 700;
+    background-color: white;
+  }
+
+  .submit-btn:disabled{
+    border:none;
+    background-color: #2159a88c;
+  }
+
+  .action{
+    display: flex;
+    justify-content: space-between;
+ }
+  .submit-btn {
+    border:2px solid #2159a8;
+        margin-top: 2rem;
+        color: #fff;
+        font-size: 24px;
+        width: 100%;
+        padding:8px 8px;
+        border-radius: 5px;
+        background-color: #2159a8;
+      
+        
+      }
+      
+      .submit-btn:checked{
+        color: #2159a8;
+        font-weight: bold;
+       border: 3px solid #2159a8;
+       background-color: transparent;
+      }
+ 

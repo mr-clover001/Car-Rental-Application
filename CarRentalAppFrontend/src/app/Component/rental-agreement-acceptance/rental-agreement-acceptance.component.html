@@ -1,0 +1,83 @@
+
+<h1>Rental Agreement</h1>
+<section>
+    <div class="container">
+ 
+   
+       
+        <div class="carDetail">
+          <article>
+    
+            <div class="card" >
+        
+                <img class="card-img-top" [src]="carDetail.photoFilePath" alt="Card image cap">
+                <div class="card-body">
+                  <h3 class="card-title">{{ carDetail.maker }}</h3> 
+                  <h6 class="card-text">{{ carDetail.model }}</h6>
+                 
+                  <h5 class="card-text">{{ carDetail.color }}</h5>
+                  <h5 class="card-text"><i class="fa fa-inr"></i> {{ carDetail.rentalPrice }}/Day</h5>
+                </div>
+        
+              </div>
+          </article>
+        </div>
+    
+        <div class="rental-agreement-detail" >
+          
+            
+                <div class="rental-agreement-detail-head">
+                  <h2>Hello, {{ rentalAgreementDetail.personName }}</h2>
+                </div>
+                <div class="rental-agreement-detail-body">
+                 
+                   
+                  
+                  <div class="details row">
+                    <div class="col" style="font-weight: bold;">Mobile Number:</div>
+                    <div class="col">
+                      <p>+91 {{ rentalAgreementDetail.mobile }}</p>
+                    </div>
+                   
+                  </div>
+                  <div class="details row">
+                    <div class="col" style="font-weight: bold;">Adhar:</div>
+                    <div class="col">
+                      <p>{{ rentalAgreementDetail.adhar }}</p>
+                    </div>
+                    
+                  </div>
+                  <div class="details row">
+                    <div class="col" style="font-weight: bold;">Duration(In days):</div>
+                    <div class="col">
+                      <p>{{ rentalAgreementDetail.duration }} Days</p>
+                    </div>
+                    
+                  </div>
+                  <div class="details row">
+                    <div class="col" style="font-weight: bold;">Total Cost to Paid</div>
+                    <div class="col">
+                      <p><i class="fa fa-inr"></i> {{ rentalAgreementDetail.totalCost }}</p>
+                    </div>
+                   
+                  </div>
+                </div>
+
+                <div class="actions">
+                   <div><button (click)="acceptRentalAgreement(rentalAgreementDetail)" class="submit-btn" type="submit" >Accept</button></div>
+                    <div><button (click) ="collectData(rentalAgreementDetail)" class="submit-btn" tpe="submit" >Edit</button></div>
+                  </div>
+
+        
+      </div>
+    </div>
+
+  
+    
+</section>
+
+
+ 
+  
+
+ 

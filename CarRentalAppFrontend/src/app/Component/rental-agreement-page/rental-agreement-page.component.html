@@ -1,0 +1,130 @@
+<section class="Card" [ngSwitch]="menuType">
+  
+    <h1>Rental Agreement</h1>
+
+
+    <div class="admin-card" *ngSwitchCase="'User'">
+        <div class="container all-details" *ngFor="let item of loggedInUserRentalAgreement; let i = index">
+          <div class="carDetail">
+            <!-- Ensure that the index 'i' corresponds to the correct car detail -->
+            <article>
+              <div class="card">
+                <img class="card-img-top" [src]="carDetails[i].photoFilePath" alt="Card image cap">
+                <div class="card-body">
+                  <h3 class="card-title">{{ carDetails[i].maker }}</h3>
+                  <h6 class="card-text">{{ carDetails[i].model }}</h6>
+                  <h5 class="card-text">{{ carDetails[i].color }}</h5>
+                  <h5 class="card-text"><i class="fa fa-inr"></i> {{ carDetails[i].rentalPrice }}/Day</h5>
+                </div>
+              </div>
+            </article>
+          </div>
+      
+          <div class="rental-agreement-detail">
+            <div class="rental-agreement-detail-head">
+              <h2>{{ item.personName }},</h2>
+            </div>
+            <div class="rental-agreement-detail-body">
+              <div class="details row">
+                <div class="col" style="font-weight: bold;">Email:</div>
+                <div class="col">
+                  <p>{{ item.email }}</p>
+                </div>
+              </div>
+              <div class="details row">
+                <div class="col" style="font-weight: bold;">Mobile Number:</div>
+                <div class="col">
+                  <p>+91 {{ item.mobile }}</p>
+                </div>
+              </div>
+              <div class="details row">
+                <div class="col" style="font-weight: bold;">Adhar:</div>
+                <div class="col">
+                  <p>{{ item.adhar }}</p>
+                </div>
+              </div>
+              <div class="details row">
+                <div class="col" style="font-weight: bold;">Duration(In days):</div>
+                <div class="col">
+                  <p>{{ item.duration }} Days</p>
+                </div>
+              </div>
+              <div class="details row">
+                <div class="col" style="font-weight: bold;">Total Cost to Paid</div>
+                <div class="col">
+                  <p><i class="fa fa-inr"></i> {{ item.totalCost }}</p>
+                </div>
+              </div>
+              <div class="actions">
+                <button class="return-approval-btn" type="submit">Request to return</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <div class="admin-card" *ngSwitchCase="'Admin'">
+        <div class="container all-details" *ngFor="let item of allRentalAgreement; let i = index">
+          <div class="carDetail">
+            <!-- Ensure that the index 'i' corresponds to the correct car detail -->
+            <article>
+              <div class="card">
+                <img class="card-img-top" [src]="carDetails[i].photoFilePath" alt="Card image cap">
+                <div class="card-body">
+                  <h3 class="card-title">{{ carDetails[i].maker }}</h3>
+                  <h6 class="card-text">{{ carDetails[i].model }}</h6>
+                  <h5 class="card-text">{{ carDetails[i].color }}</h5>
+                  <h5 class="card-text"><i class="fa fa-inr"></i> {{ carDetails[i].rentalPrice }}/Day</h5>
+                </div>
+              </div>
+            </article>
+          </div>
+      
+          <div class="rental-agreement-detail">
+            <div class="rental-agreement-detail-head">
+              <h2>{{ item.personName }},</h2>
+            </div>
+            <div class="rental-agreement-detail-body">
+              <div class="details row">
+                <div class="col" style="font-weight: bold;">Email:</div>
+                <div class="col">
+                  <p>{{ item.email }}</p>
+                </div>
+              </div>
+              <div class="details row">
+                <div class="col" style="font-weight: bold;">Mobile Number:</div>
+                <div class="col">
+                  <p>+91 {{ item.mobile }}</p>
+                </div>
+              </div>
+              <div class="details row">
+                <div class="col" style="font-weight: bold;">Adhar:</div>
+                <div class="col">
+                  <p>{{ item.adhar }}</p>
+                </div>
+              </div>
+              <div class="details row">
+                <div class="col" style="font-weight: bold;">Duration(In days):</div>
+                <div class="col">
+                  <p>{{ item.duration }} Days</p>
+                </div>
+              </div>
+              <div class="details row">
+                <div class="col" style="font-weight: bold;">Total Cost to Paid</div>
+                <div class="col">
+                  <p><i class="fa fa-inr"></i> {{ item.totalCost }}</p>
+                </div>
+              </div>
+              <div class="actions">
+                <button class="return-approval-btn" type="submit">Return Approval</button>
+                <button (click)="deleteAgreement(item.id)" class="delete" tpe="submit">Delete</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+
+
+</section>

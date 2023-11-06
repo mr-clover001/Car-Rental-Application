@@ -1,0 +1,131 @@
+<div class="container" *ngIf="!isCarDataEmpty">
+
+    <div *ngIf="isDeleted" class="alert alert-danger alert-dismissible fade show" role="alert">
+      <strong>Deleted! </strong>Car is Deleted SuccessFully.
+      <button type="button" (click)="closeClick()" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  
+  
+
+<div class="filters row" style="margin-top: 2em;">
+  <!-- Button to toggle additional filters -->
+  <div class="row Filterbtn">
+    <button (click)="toggleFilters()" class="btn filter-btn mb-3">Filters</button>
+  </div>
+
+  <!-- Additional filters (hidden by default) -->
+  <div *ngIf="showAdditionalFilters" class="row filters">
+
+    
+    <div class=" row searchbar mb-3">
+      <i class="fa fa-search" aria-hidden="true"></i>
+      <input [(ngModel)]="CarMakerFilter" type="search" class="search-input" placeholder="Search Car"
+        (keyup)="searchProduct()">
+    </div> 
+
+    <div class="row filterbar mb-3">
+      <select [(ngModel)]="selectedMaker" class="filter-input" (change)="filterByMaker()">
+        <option value="">filter by Car Maker</option>
+        <option value="skoda">Skoda</option>
+        <option value="toyota">Toyota</option>
+        <option value="ford">Ford</option>
+        <option value="lamborghini">Lamborghini</option>
+        <option value="land rover">Land Rover</option>
+        <option value="bugatti">Bugatti</option>
+        <!-- Add more options for other car makers if needed -->
+      </select>
+    </div>
+
+    <div class="row">
+      <div class="col rentalPriceFilter mb-3">
+        <label for="customRange2" class="form-label">Filter by Rent Price Range: {{ minrentalPrice }} - {{ maxrentalPrice }}</label>
+        <input type="range" class="form-range" min="5000" max="25000" id="customRange2" [(ngModel)]="maxrentalPrice" (input)="filterAndSortCars()">
+      </div>
+  
+     
+  
+      <div class="col sortBar mt-4" style="display: flex;">
+        <button type="button" class="sort-btn btn btn-light" 
+        (click) =" sortResult('rentalPrice',true)">Up</button>
+        <p>Sort By Rent Price</p> 
+        <button type="button" class="sort-btn btn btn-light" 
+        (click) =" sortResult('rentalPrice',false)">Down</button>
+  
+      </div>
+    </div>
+    
+
+  </div>
+</div>
+
+
+
+    <div class="search-container row">
+  
+      
+
+      <div class="row title">
+        <h1> EXPLORE CARS</h1>
+      </div>
+
+      <div class="row">
+        <article>
+
+          <div class="card" 
+          *ngFor="let item of CarList | paginate:{
+              itemsPerPage:tableSize,
+              currentPage:page,
+              totalItems:count } let i= index ">
+      
+              <div [class.non-available-car]="showAvailableCars && item.availablityStatus !== 'Available'">
+              <img (click)="collectData(item)" class="card-img-top" [src]="item.photoFilePath" alt="Card image cap">
+              <div class="card-body">
+                <h3 (click)="collectData(item)" class="card-title">{{ item.maker }}</h3> 
+                <h6 (click)="collectData(item)" class="card-text">{{ item.model }}</h6>
+                <h5 (click)="collectData(item)" class="card-text">{{ item.color }}</h5>
+                <div class="row" >
+                  <div class="col">
+                    <h5 (click)="collectData(item)" class="card-text"><i class="fa fa-inr"></i> {{ item.rentalPrice }}/Day</h5>
+                  </div> 
+                  <div class="col" *ngIf="item.availablityStatus=='Available'" style="margin-left: 170px; color: rgb(23, 206, 148); font-weight: bold;">
+              {{item.availablityStatus}}
+                  </div>
+                  <div class="col" *ngIf="item.availablityStatus=='Not Available'" style="margin-left: 170px; color: rgb(223, 24, 17); font-weight: bold">
+                    {{item.availablityStatus}}
+                        </div>
+                </div>
+              
+                 </div>
+                
+                
+                <div class="action row"  *ngIf="isAdmin">
+                  <button  class="submit-btn col" routerLink="/UpdateCarDetail/{{item.vechicleId}}" type="submit" >Edit</button>
+                  <button class=" delete submit-btn col" (click)="deleteCarDetail(item.vechicleId)"  type="submit" style="margin-left: 12px;">Delete</button>
+              </div>
+              </div> 
+      
+            </div>
+        </article>
+      </div>
+  
+    
+    
+  
+    <!-- Pagination Logic -->
+    <div class=" pagination justify-content-center mt-3">
+      <pagination-controls previousLabel="Prev" nextLabel="Next"
+        (pageChange)="onTableDataChanged($event)"></pagination-controls>
+    </div>
+  </div>
+  
+  <div class="container mt-5" *ngIf="isCarDataEmpty">
+    <div class="noData">
+      <h1>Nothing Is in Product Database. Login As Admin and add Products to DataBase.</h1>
+      <br>
+      <a class="loginPageButton" routerLink="./Login">Login </a>
+    </div>
+  </div>
+  
+  

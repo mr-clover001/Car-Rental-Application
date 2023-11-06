@@ -1,0 +1,128 @@
+<div class="container">
+
+    <div>
+      <h1 class="text-center fs-3" [ngClass]="IsAccountCreated ? 'text-success pb-1':'text-danger pb-1'"> {{displayMsg}}
+      </h1>
+    </div>
+  
+  
+  
+    <form [formGroup]="registerForm" (ngSubmit)="registerSubmitted()" class="form">
+      <div class="row ">
+        <div class="register col text-center ">
+          <Span class="fs-3">SignUp</Span>
+        </div>
+      </div>
+  
+      <div class="row">
+  
+        <div class="col mb-3">
+  
+          <label for="firstname" class="form-label">First Name</label>
+          <input type="text" class="form-control" id="firtname" formControlName="firstname">
+  
+          <!-- Validation  -->
+          <div class="form-text text-danger "
+            *ngIf="FirstName.errors?.['required'] && (FirstName.touched || FirstName.dirty)">
+            First name is required
+          </div>
+          <div class="form-text text-danger" *ngIf="FirstName.errors?.['minLength']">
+            First name is required
+          </div>
+          <div class="form-text text-danger"
+            *ngIf="FirstName.errors?.['pattern'] && (FirstName.touched || FirstName.dirty)">
+            First name should Start with Aplhabet
+          </div>
+        </div>
+  
+        <div class="col mb-3">
+          <label for="lastname" class="form-label">Last Name</label>
+          <input type="text" class="form-control" id="lastname" formControlName="lastname">
+  
+          <!-- Validation -->
+  
+          <div class="form-text text-danger" *ngIf="LastName.errors?.['minLength']">
+            Last name is to short
+          </div>
+          <div class="form-text text-danger" *ngIf="LastName.errors?.['pattern'] && (LastName.touched || LastName.dirty)">
+            Last name should Start with Aplhabet
+          </div>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="email" formControlName="email">
+          <div class="form-text text-danger" *ngIf="Email.errors?.['required'] && (Email.touched || Email.dirty)">
+            email is required
+          </div>
+  
+          <div class="form-text text-danger" *ngIf="Email.errors?.['email'] && (Email.touched || Email.dirty)">
+            Email is Invalid
+          </div>
+  
+  
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col mb-3">
+          <label for="role" class="form-label">Role</label>
+          <select class="form-select" id="role" formControlName="role" aria-label="Default select example">
+            <option value="Admin">Admin</option>
+            <option value="User">User</option>
+          </select>
+  
+          <div class="form-text text-danger" *ngIf="Role.errors?.['required'] && (Role.touched || Role.dirty)">
+            Role is Must required
+          </div>
+        </div>
+  
+      </div>
+  
+      <div class="row">
+        <div class="col mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password" formControlName="password">
+          <div class="form-text text-danger"
+            *ngIf="Password.errors?.['required'] && (Password.touched || Password.dirty)">
+            Password is required
+          </div>
+  
+          <div class="form-text text-danger"
+            *ngIf="Password.errors?.['minlength'] && (Password.touched || Password.dirty)">
+            Password is short
+          </div>
+          <div class="form-text text-danger"
+            *ngIf="Password.errors?.['maxlength'] && (Password.touched || Password.dirty)">
+            Password is to long
+          </div>
+        </div>
+        <div class="col mb-3">
+          <label for="rpwd" class="form-label">Repeat Password</label>
+          <input type="password" class="form-control" id="rpwd" formControlName="rpwd">
+          <div class="form-text text-danger" [ngStyle]="{display: repeatPass}">
+            Repeat Password is Invalid
+          </div>
+        </div>
+  
+  
+      </div>
+  
+      <div class="row">
+        <div class="col-6 offset-3">
+          <div class="d-grid submit-btn">
+            <button type="submit" [disabled]="registerForm.invalid" class="btn btn-primary px-5">Submit</button>
+          </div>
+        </div>
+  
+      </div>
+  
+  
+  
+  
+  
+    </form>
+  
+  </div>

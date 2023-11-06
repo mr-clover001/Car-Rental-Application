@@ -1,0 +1,76 @@
+<nav  class="navbar navbar-expand-lg navbar-light ">
+    <div class="container-fluid">
+      <a style="color: white;" class="navbar-brand" href="#" routerLink="/"><i style="font-size: 35px;" class="fa fa-car"></i> <span style="font-size:35px ;"> C</span>ar's RentalL</a>
+      <button  class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon" ></span>
+      </button>
+      <div class="collapse navbar-collapse " id="navbarSupportedContent">
+  
+        <!-- Logic HeaderBar -->
+  
+        <div class="navbar-nav" [ngSwitch]="menuType">
+  
+          <ul *ngSwitchCase="'Default'" class="navbar-nav">
+            <li class="nav-item ">
+              <a class="nav-link" routerLink="/">Home</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" routerLink="Cars">Cars</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" routerLink="Login">Login</a>
+            </li>
+            <!-- <li class="nav-item ">
+              <a class="nav-link" routerLink="Signup">SignUp</a>
+            </li> -->
+          </ul>
+  
+          <ul *ngSwitchCase="'User'" class="navbar-nav">
+            <li class="nav-item ">
+              <a class="nav-link">{{userName}}</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" routerLink="/">Home</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" routerLink="Cars">Cars</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" routerLink="RentalAgreementPage">My Rental Agreement</a>
+            </li>
+  
+            <li class="nav-item ">
+              <a (click)="signOut()" class="nav-link">SignOut</a>
+            </li>
+          </ul>
+  
+          <ul *ngSwitchCase="'Admin'" class="navbar-nav">
+            <li class="nav-item ">
+              <a class="nav-link">{{userName}}</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" routerLink="/">Home</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" routerLink="Cars">Cars</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" routerLink="AddCarDetail">Add New Car </a>
+            </li>
+
+            <li class="nav-item ">
+                <a class="nav-link" routerLink="RentalAgreementPage">Rental Agreement</a>
+              </li>
+              
+            <li class="nav-item ">
+              <a (click)="signOut()" class="nav-link">SignOut</a>
+            </li>
+
+          </ul>
+  
+        </div>
+  
+      </div>
+    </div>
+  </nav>

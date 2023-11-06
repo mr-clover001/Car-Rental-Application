@@ -1,0 +1,202 @@
+section{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: auto;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 00px;
+    max-width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
+    
+    
+    
+  
+  }
+
+  h1{
+    text-align: center;
+    font-size: 44px;
+    margin: 2em;
+    color: #156de8b7;
+    padding: 12px 12px;
+    background-color: rgba(106, 106, 104, 0.035);
+    margin-bottom: 20px;
+  }
+
+  article {
+
+  
+    margin: 5em 2em;
+  }
+  .card {
+    border: 1px solid #ddd; /* Add a softer border */
+    border-radius: 20px;
+    padding: 5px 5px; 
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease; 
+    width: 500px;
+    height: 500px;
+  }
+  
+  
+  .card:hover {
+    transform: scale(1.26);
+  }
+  
+  img{
+    border-radius: 15px;
+      width: 488px;
+      height: 300px;
+  }
+
+  .card-body{
+    padding: 40px 30px;
+    text-align: Left;
+  }
+  
+  p{
+    font-size: 22px;
+    color: #1e1e1fcd;
+  }
+  h6{
+    font-size: 18px;
+    color: #38363661;
+  }
+
+  h5{
+    font-size: 18px;
+    font-weight: 400;
+    color: #38363661;
+  }
+
+
+
+  .default-msg{
+    margin-top: 16rem;
+    
+  }
+
+  .default-msg h2{
+    color:#2159a8;
+    margin-bottom: 5px;
+  }
+
+  .goToLogin-btn{
+    margin-top: 30px;
+  }
+
+  .goToLogin-btn a {
+        
+        border:2px solid #2159a8;
+        color: #fff;
+        font-size: 24px;
+        padding:8px 8px;
+        border-radius: 5px;
+        background-color: #2159a8;
+        text-decoration: none;
+        
+        
+      }
+      
+
+      .goToLogin-btn a:hover{
+        color: #2159a8;
+        font-weight: bold;
+       border: 3px solid #2159a8;
+       background-color: transparent;
+      }
+
+      .rental-agreement-detail{
+
+        margin-top: 7em;
+        width: 50%;
+      }
+
+      .rental-agreement-detail-head{
+        margin-bottom: 3em;
+      }
+
+
+
+      .action{
+        display: flex;
+        justify-content: space-between;
+     }
+
+      .submit-btn {
+        border:2px solid #2159a8;
+            margin-top: 5rem;
+            color: #fff;
+            font-size: 20px;
+            padding:8px 8px;
+            border-radius: 5px;
+            background-color: #2159a8;
+          
+            
+          }
+          
+          .submit-btn:hover{
+            color: #2159a8;
+            font-weight: bold;
+           border: 3px solid #2159a8;
+           background-color: transparent;
+          }
+
+      @media (max-width: 1024px) {
+       
+      
+
+        .container {
+           
+            flex-direction: column;
+            max-width: 1500px;
+            margin-left: auto;
+            margin-right: auto;
+            height: auto;
+            align-items: center;
+          }
+
+
+          .defaultText{
+             margin-top: -150px;
+            margin-bottom: 250px;
+          }
+
+          .rental-agreement-detail{
+
+            margin-top: 0em;
+            width: 70%;
+            margin-bottom: 5em;
+          }
+    
+          .rental-agreement-detail-head{
+            margin-bottom: 3em;
+          }
+      }
+
+    
+
+      .submit-btn {
+        border:2px solid #2159a8;
+            margin-top: 1rem;
+            color: #fff;
+            font-size: 24px;
+            width: 100%;
+            padding:8px 8px;
+            border-radius: 5px;
+            background-color: #2159a8;
+          
+            
+          }
+          
+          .submit-btn:hover{
+            color: #2159a8;
+            font-weight: bold;
+           border: 3px solid #2159a8;
+           background-color: transparent;
+          }

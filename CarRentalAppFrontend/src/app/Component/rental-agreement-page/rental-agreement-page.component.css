@@ -1,0 +1,160 @@
+section{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: auto;
+    margin-bottom: 3em;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin: 2em;
+    
+    border: 1px solid #ddd; /* Add a softer border */
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    
+  
+  }
+
+  h1{
+    text-align: center;
+    font-size: 44px;
+    margin: 2em;
+    color: #156de8b7;
+    padding: 12px 12px;
+    background-color: rgba(106, 106, 104, 0.035);
+    margin-bottom: 20px;
+  }
+
+  article {
+
+    margin: 5em 2em;
+  }
+  .card {
+    border: 1px solid #ddd; /* Add a softer border */
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease; 
+    width: 300px;
+    height: 300px;
+  }
+  
+  
+  .card:hover {
+    transform: scale(1.12);
+  }
+  
+  img{
+    margin:5px;
+    border-radius: 15px;
+      width: 288px;
+      height: 150px;
+  }
+
+  .card-body{
+    padding: 10px 30px;
+    text-align: Left;
+  }
+  
+  p{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 22px;
+    color: #1e1e1fcd;
+  }
+  h6{
+    font-size: 18px;
+    color: #38363661;
+  }
+
+  h5{
+    font-size: 18px;
+    font-weight: 400;
+    color: #38363661;
+  }
+
+  .rental-agreement-detail{
+
+    margin-top: 2em;
+    width: 50%;
+  }
+
+  .rental-agreement-detail-head{
+    margin-bottom: 1em;
+  }
+
+  .action{
+    display: flex;
+    justify-content: space-between;
+    
+ }
+
+  .delete {
+    
+        margin-top: 1.5rem;
+        color: #fff;
+        font-size: 24px;
+        padding:5px 10px;
+        border-radius: 10px;
+        border: 3px solid #c30a0a;
+        background-color: #c30a0a;
+      
+        
+      }
+      
+      .delete:hover{
+        color: #c30a0a;
+        font-weight: bold;
+       border: 3px solid #c30a0a;
+       background-color: transparent;
+      }
+
+      .return-approval-btn{
+       
+        margin-top: 1.5rem;
+        color: #fff;
+        font-size: 24px;
+        padding:5px 10px;
+        border-radius: 10px;
+        border: 3px solid #038446;
+        background-color: #038446;
+        margin-right: 13px;
+      }
+
+      .return-approval-btn:hover{
+        color: #038446;
+        font-weight: bold;
+       border: 3px solid #038446;
+       background-color: transparent;
+      }
+
+
+      /* responsive */
+
+      @media (max-width: 1044px) {
+
+        p{
+            font-size: 18px;
+        }
+
+        .return-approval-btn{
+       
+           
+            font-size: 18px;
+            padding:3px 7px;
+            border-radius: 10px;
+          
+            margin-right: 15px;
+          }
+
+          .delete {
+    
+           
+            font-size: 18px;
+            padding:3px 7px;
+        
+          
+            
+          }
+      }

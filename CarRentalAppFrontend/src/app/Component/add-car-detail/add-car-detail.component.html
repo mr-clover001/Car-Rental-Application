@@ -1,0 +1,102 @@
+<div class="container">
+    <h2>Add New Car</h2>
+    <div *ngIf="isCarAdded" class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Success!</strong> Car Details Added SuccessFully .
+      <button type="button" onclick="closeClick()" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  
+    <form [formGroup]="addCarDetailsForm" (ngSubmit)="dataAdded()">
+      <div class="row mb-3">
+        <label for="maker" class="form-label">Company</label>
+        <input type="text" class="form-control" id="maker" placeholder="Enter Car's Company Name"
+          formControlName="maker">
+  
+        <div class="form-text text-danger "
+          *ngIf="Maker.errors?.['required'] && (Maker.touched || Maker.dirty)">
+          Car's Company is required
+        </div>
+        <div class="form-text text-danger"
+          *ngIf="Maker.errors?.['pattern'] && (Maker.touched || Maker.dirty)">
+           Company should Start with Aplhabet
+        </div>
+  
+      </div>
+      <div class="row mb-3">
+        <label for="model" class="form-label">Model</label>
+        <textarea class="form-control" id="model" rows="3" placeholder="Enter model"
+          formControlName="model"></textarea>
+  
+        <div class="form-text text-danger "
+          *ngIf="Model.errors?.['required'] && (Model.touched || Model.dirty)">
+          Model is required
+        </div>
+    
+  
+  
+      </div>
+      <div class="row mb-3">
+        <div class="col">
+          <label for="color" class="form-label">Color</label>
+          <input type="text" class="form-control" id="color" placeholder="Enter color" formControlName="color">
+  
+          <div class="form-text text-danger "
+            *ngIf="Color.errors?.['required'] && (Color.touched || Color.dirty)">
+            Specific the Color
+          </div>
+  
+        </div>
+  
+        <div class="col"><label for="imageFileName" class="form-label">Image</label>
+          <input type="file" name="imageFileName" class="form-control" id="imageFileName" formControlName="imageFileName"
+            (change)="UploadPhoto($event)">
+  
+          <!-- #fileInput
+              accept="image/*"  -->
+  
+          <p>Selected file: {{ selectedFileName }}</p>
+  
+          <div class="form-text text-danger "
+            *ngIf="ImageFileName.errors?.['required'] && (ImageFileName.touched || ImageFileName.dirty)">
+            Image is required
+          </div>
+  
+        </div>
+      </div>
+      <div class="row mb-3">
+  
+      </div>
+      <div class="row mb-3">
+        <div class="col">
+          <label for="rentalPrice" class="form-label">Rental Price</label>
+          <input type="number" class="form-control" id="rentalPrice" placeholder="Enter Rental Price" formControlName="rentalPrice">
+  
+          <div class="form-text text-danger " *ngIf="RentalPrice.errors?.['required'] && (RentalPrice.touched || RentalPrice.dirty)">
+            Price is required
+          </div>
+  
+  
+        </div>
+  
+        <div class="col">
+            <label for="availablityStatus" class="form-label">Availablity Status</label>
+            <select class="form-select" id="availablityStatus" formControlName="availablityStatus" aria-label="Default select example">
+              <option value="Available">Available</option>
+              <option value="Not Available">Not Available</option>
+            </select>
+          <div class="form-text text-danger "
+            *ngIf="AvailablityStatus.errors?.['required'] && (AvailablityStatus.touched || AvailablityStatus.dirty)">
+            Status is required
+          </div>
+  
+        </div>
+      
+  
+      </div>
+      
+  
+     
+      <button class="submit-btn" type="submit" >Add Car</button>
+    </form>
+  </div>

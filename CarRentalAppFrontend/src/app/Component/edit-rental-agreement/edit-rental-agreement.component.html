@@ -1,0 +1,104 @@
+<!-- <div class="container"><div class="form">
+
+
+    <div class="greet"> <h2 style="color: black;">Edit Your Rental Agreement</h2></div>
+   
+   
+   <form [formGroup]="editRentAgreementForm" (ngSubmit)="EditRentAgreementDetail()"> 
+    <div class="greet"> <h3 style="color: black;"> {{this.rentalAgreementDetail.personName}},</h3></div>
+    <div class="row mb-3">
+          <label for="mobile" class="form-label">Mobile</label>
+          <input type="number" class="form-control" id="mobile" placeholder="Enter Your Mobile Number"
+            formControlName="mobile">
+    
+          <div class="form-text text-danger "
+            *ngIf="Mobile.errors?.['required'] && (Mobile.touched || Mobile.dirty)">
+            Mobile Number is required
+          </div>
+    
+        </div>
+    
+        <div class="row mb-3">
+            <label for="adhar" class="form-label">Adhar</label>
+            <input type="number" class="form-control" id="adhar" placeholder="Enter Your adhar number"
+              formControlName="adhar">
+      
+            <div class="form-text text-danger "
+              *ngIf="Adhar.errors?.['required'] && (Adhar.touched || Adhar.dirty)">
+              Adhar Number is required
+            </div>
+      
+          </div>
+
+
+        <div class="row mb-3">
+          
+            <label for="duration" class="form-label">Number Of Days you want to rent Car?</label>
+            <input type="number" class="form-control" id="duration" placeholder="Enter Rental Price" formControlName="duration">
+    
+            <div class="form-text text-danger " *ngIf="Duration.errors?.['required'] && (Duration.touched || Duration.dirty)">
+              Duration is required
+            </div>
+
+          </div>
+    <div class="action">
+        <button  class="submit-btn" type="submit" >Edit</button>
+        <button (click)="BacktoForm(this.rentalAgreementDetail)" class="submit-btn" type="submit" style="margin-left: 12px;">Back</button>
+    </div>
+       
+      </form> 
+
+
+</div>
+</div> -->
+
+<div class="container">
+  <div class="form">
+    <div class="greet">
+      <h2 style="color: black;">Edit Your Rental Agreement</h2>
+    </div>
+
+    <form [formGroup]="editRentAgreementForm" (ngSubmit)="EditRentAgreementDetail()">
+      <div class="greet">
+        <h3 style="color: black;"> {{ rentalAgreementDetail.personName }},</h3>
+      </div>
+      <div class="row mb-3">
+        <label for="mobile" class="form-label">Mobile</label>
+        <input type="number" class="form-control" id="mobile" placeholder="Enter Your Mobile Number"
+          formControlName="mobile">
+
+        <div class="form-text text-danger"
+          *ngIf="Mobile.errors?.['required'] && (Mobile.touched || Mobile.dirty)">
+          Mobile Number is required
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <label for="adhar" class="form-label">Adhar</label>
+        <input type="number" class="form-control" id="adhar" placeholder="Enter Your adhar number"
+          formControlName="adhar">
+
+        <div class="form-text text-danger"
+          *ngIf="Adhar.errors?.['required'] && (Adhar.touched || Adhar.dirty)">
+          Adhar Number is required
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <label for="duration" class="form-label">Number Of Days you want to rent Car?</label>
+        <input type="number" class="form-control" id="duration" placeholder="Enter Rental Price"
+          formControlName="duration">
+
+        <div class="form-text text-danger" *ngIf="Duration.errors?.['required'] && (Duration.touched || Duration.dirty)">
+          Duration is required
+        </div>
+      </div>
+
+      <div class="action">
+        <button class="submit-btn" type="submit">Edit</button>
+        <button (click)="BacktoForm(this.rentalAgreementDetail)" class="submit-btn" type="submit"
+          style="margin-left: 12px;">Back</button>
+      </div>
+    </form>
+  </div>
+</div>
